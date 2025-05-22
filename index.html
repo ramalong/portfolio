@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tsukamoto Riku | RAMALONG</title>
+
+    <!-- ページの説明（検索結果の概要やSNSでのプレビューに表示） -->
+    <meta name="description" content="Tsukamoto Rikuのポートフォリオサイト。AI社会研究部サイト併設。AI、社会、デザインをテーマにした創造的なプロジェクトを紹介。">
+
+    <!-- キーワード（SEO補助） -->
+    <meta name="keywords" content="Tsukamoto Riku, 塚本陸, AI社会研究部, RAMALONG, AI, 社会, デザイン, ポートフォリオ">
+
+    <!-- サイトの作者 -->
+    <meta name="author" content="Tsukamoto Riku">
+
+    <!-- favicon（ブラウザのタブや検索結果に表示されるアイコン） -->
+    <link rel="icon" href="assets/icon01.png" type="image/png">
+
+    <!-- SNS共有用（Open Graphタグ：FacebookやX（旧Twitter）など） -->
+    <meta property="og:title" content="Tsukamoto Riku | RAMALONG">
+    <meta property="og:description" content="AI、社会、デザインの接点を探究するTsukamoto Rikuの創造的ポートフォリオ。">
+    <meta property="og:image" content="assets/icon01.png"> <!-- 適当な画像パスに変更 -->
+    <meta property="og:url" content="https://ramalong.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitterカード用 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tsukamoto Riku | RAMALONG">
+    <meta name="twitter:description" content="AI、社会、デザインの接点を探究するTsukamoto Rikuの創造的ポートフォリオ。">
+    <meta name="twitter:image" content="assets/icon01.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+    <main id="main-content">
+
+      <!-- ローディングブロック用透明オーバーレイ -->
+      <div id="loading-overlay"></div>
+
+      <!-- ローディングアニメーション -->
+      <div id="loader-wrapper">
+        <div class="loader-circle">
+          <div class="loader-percent">0%</div>
+        </div>
+        <div class="loader-outer-ring"></div>
+      </div>
+
+      <!-- スライド矩形アニメーション -->
+      <div class="slide-wrapper">
+        <div class="slide-top"></div>
+        <div class="slide-bottom"></div>
+      </div>
+
+      <!-- 追従カーソル -->
+      <div class="custom-cursor"></div>
+      <div id="cursor-toggle">カーソルON/OFF</div>
+
+      <!-- 左上ロゴ＋説明 -->
+      <div class="site-header">
+        <a href="index.html" class="site-title">RAMALONG LAB</a>
+        <div class="site-description">
+          A CREATIVE SITE<br>
+          EXPLORING AI, SOCIETY,<br>
+          AND DESIGN.
+        </div>
+        <!-- ハンバーガーメニュー -->
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+      </div>
+
+      <!-- ナビゲーションメニュー -->
+      <nav id="mainNav">
+        <div class="nav-item"><a href="about.html" data-swup>ABOUT</a></div>
+        <div class="nav-item"><a href="works.html" data-swup>WORKS</a></div>
+        <div class="nav-item"><a href="ai-lab/index.html" data-swup>AI社会研究部</a></div>
+        <div class="nav-item"><a href="archive.html" data-swup>ARCHIVE</a></div>
+        <div class="nav-item"><a href="content.html" data-swup>CONTACT</a></div>
+      </nav>
+
+      <!-- 背景横スクロール文字 -->
+      <div class="scroll-text-layer">
+        <div class="scroll-text">RAMALONG&nbsp;RAMALONG&nbsp;RAMALONG&nbsp;RAMALONG</div>
+      </div>
+
+      <div class="video-block">
+        <video class="video-content" autoplay muted loop playsinline>
+          <source src="/videos/movie08.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-caption">nature iyashi movie example01</div>
+      </div>
+
+      <div class="video-block02">
+        <video class="video-content" autoplay muted loop playsinline>
+          <source src="/videos/movie09.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-caption">nature iyashi movie example01</div>
+      </div>
+
+    </main>
+
+    <footer>
+      &copy; 2025 Tsukamoto Riku / ramalong.com
+    </footer>
+
+    <!-- js記述 -->
+    <script>
+      // カーソル切り替え
+      const toggleBtn = document.getElementById('cursor-toggle');
+      let cursorHidden = true;
+
+      toggleBtn.addEventListener('click', () => {
+        cursorHidden = !cursorHidden;
+        document.body.style.cursor = cursorHidden ? 'none' : 'auto';
+        document.querySelector('.custom-cursor').style.display = cursorHidden ? 'block' : 'none';
+      });
+    </script>
+
+    <script>
+      const toggle = document.getElementById("menuToggle");
+      const nav = document.getElementById("mainNav");
+
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    </script>
+
+    <script>
+      const cursor = document.querySelector('.custom-cursor');
+      let mouseX = 0;
+      let mouseY = 0;
+      let currentX = 0;
+      let currentY = 0;
+
+      document.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      function animateCursor() {
+        currentX += (mouseX - currentX) * 0.6;
+        currentY += (mouseY - currentY) * 0.6;
+        cursor.style.transform = `translate(${currentX}px, ${currentY}px)`;
+        requestAnimationFrame(animateCursor);
+      }
+
+      animateCursor();
+    </script>
+
+    <script>
+      window.addEventListener('load', () => {
+        const loadingScreen = document.getElementById('loading-screen');
+        const MIN_LOADING_TIME = 1500;
+        const startTime = Date.now();
+
+        const ensureMinimumTime = new Promise(resolve => {
+          const elapsed = Date.now() - startTime;
+          const remaining = MIN_LOADING_TIME - elapsed;
+          setTimeout(resolve, remaining > 0 ? remaining : 0);
+        });
+
+        ensureMinimumTime.then(() => {
+          loadingScreen.classList.add('fade-out');
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+          }, 600);
+        });
+      });
+    </script>
+
+    <!-- ローディングアニメーション -->
+    <script>
+      const loaderWrapper = document.getElementById("loader-wrapper");
+      const loaderCircle = document.querySelector(".loader-circle");
+      const loaderPercent = document.querySelector(".loader-percent");
+      const outerRing = document.querySelector(".loader-outer-ring");
+
+      const slideWrapper = document.querySelector(".slide-wrapper");
+      const slideTop = document.querySelector(".slide-top");
+      const slideBottom = document.querySelector(".slide-bottom");
+      const mainContent = document.getElementById("main-content");
+
+      let progress = 0;
+      const MIN_TIME = 1500;
+      const startTime = Date.now();
+
+      const interval = setInterval(() => {
+        progress += Math.random() * 8;
+        if (progress > 100) progress = 100;
+
+        loaderPercent.textContent = `${Math.floor(progress)}%`;
+        loaderCircle.style.background = `radial-gradient(circle at center, #00ffc3, #1e00ff)`;
+
+        const size = 120 + progress * 1.2;
+        outerRing.style.width = `${size}px`;
+        outerRing.style.height = `${size}px`;
+
+        if (progress >= 100) {
+          clearInterval(interval);
+          const elapsed = Date.now() - startTime;
+          const remaining = MIN_TIME - elapsed;
+
+          setTimeout(() => {
+            slideWrapper.style.display = "block";
+            requestAnimationFrame(() => {
+              slideTop.classList.add("slide-merge-top");
+              slideBottom.classList.add("slide-merge-bottom");
+            });
+
+            setTimeout(() => {
+              slideWrapper.classList.add("rotate");
+              loaderCircle.style.display = "none";
+              outerRing.style.display = "none";
+
+              setTimeout(() => {
+                slideWrapper.classList.replace("rotate", "exit");
+
+                setTimeout(() => {
+                  loaderWrapper.style.display = "none";
+                  slideWrapper.style.display = "none";
+                  mainContent.style.display = "block";
+                  document.body.style.overflow = "auto";
+                }, 600);
+              }, 600);
+            }, 500);
+          }, remaining > 0 ? remaining : 0);
+        }
+      }, 40);
+
+      // ローディング終了後に解除
+      document.getElementById('loading-overlay').style.display = 'none';
+    </script>
+
+  </body>
+</html>
