@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI研Ramalong | Contact</title>
+  <meta name="description" content="AI研Ramalongへのお問い合わせページ。コラボレーション・参加希望・取材依頼等はこちらから。">
+  <meta name="author" content="Tsukamoto Riku">
+  <link rel="icon" href="assets/icon02.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/ai-lab.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">AI研Ramalong</div>
+      <div class="nav-back"><a href="../index.html" data-swup>← 元ページへ</a></div>
+    <button id="menuToggle" class="menu-toggle" aria-label="メニュー切替">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav">
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="reading.html">Reading</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Main -->
+  <main>
+    <!-- Hero -->
+    <section class="hero fade-target">
+      <h1>Contact Us</h1>
+      <div class="hero-animation">
+        <canvas id="heroCanvas" aria-label="背景アニメーション" role="img"></canvas>
+      </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="fade-target">
+      <h2>お問い合わせ方法</h2>
+      <div class="three-column contact-methods">
+        <div class="column">
+          <h3>📧 メール</h3>
+          <p>メール: <a href="mailto:j2400105@gunma-u.ac.jp">j2400105@gunma-u.ac.jp</a></p>
+        </div>
+        <div class="column">
+          <h3>💬 Discord</h3>
+          <p>AI研サーバーへ参加：<a href="https://discord.gg/knjX39Pz" target="_blank">参加リンク</a></p>
+        </div>
+        <div class="column">
+          <h3>🐦 X（旧Twitter）</h3>
+          <p>🐦 X（旧Twitter）: <a href="https://x.com/ramalongTR" target="_blank" rel="noopener noreferrer">AI研Ramalong</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inquiry Form -->
+    <section class="fade-target">
+      <h2>お問い合わせフォーム</h2>
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">お名前</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">メールアドレス</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">件名</label>
+          <input type="text" id="subject" name="subject" required />
+        </div>
+        <div class="form-group">
+          <label for="message">メッセージ</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">送信</button>
+        <p class="form-note">※現在このフォームは送信できません。メールまたはDiscordよりご連絡ください。</p>
+      </form>
+    </section>
+
+    <!-- Collaboration Options -->
+    <section class="fade-target">
+      <h2>コラボレーションについて</h2>
+      <div class="collab-boxes">
+        <div class="collab-box">
+          <h3>メディア・取材</h3>
+          <p>活動紹介・研究成果の取材対応可能です。</p>
+        </div>
+        <div class="collab-box">
+          <h3>企業パートナー</h3>
+          <p>実証実験・ワークショップなど共同実施をご相談ください。</p>
+        </div>
+        <div class="collab-box">
+          <h3>研究者連携</h3>
+          <p>哲学・法・技術・教育など多分野との連携を推進中です。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 AI研Ramalong. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/ai-lab.js"></script>
+</body>
+</html>
