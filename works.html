@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tsukamoto Riku | RAMALONG</title>
+
+    <!-- ページの説明（検索結果の概要やSNSでのプレビューに表示） -->
+    <meta name="description" content="Tsukamoto Rikuのポートフォリオサイト。AI社会研究部サイト併設。AI、社会、デザインをテーマにした創造的なプロジェクトを紹介。">
+
+    <!-- キーワード（SEO補助） -->
+    <meta name="keywords" content="Tsukamoto Riku, 塚本陸, AI社会研究部, RAMALONG, AI, 社会, デザイン, ポートフォリオ">
+
+    <!-- サイトの作者 -->
+    <meta name="author" content="Tsukamoto Riku">
+
+    <!-- favicon（ブラウザのタブや検索結果に表示されるアイコン） -->
+    <link rel="icon" href="assets/icon01.png" type="image/png">
+
+    <!-- SNS共有用（Open Graphタグ：FacebookやX（旧Twitter）など） -->
+    <meta property="og:title" content="Tsukamoto Riku | RAMALONG">
+    <meta property="og:description" content="AI、社会、デザインの接点を探究するTsukamoto Rikuの創造的ポートフォリオ。">
+    <meta property="og:image" content="assets/icon01.png"> <!-- 適当な画像パスに変更 -->
+    <meta property="og:url" content="https://ramalong.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitterカード用 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tsukamoto Riku | RAMALONG">
+    <meta name="twitter:description" content="AI、社会、デザインの接点を探究するTsukamoto Rikuの創造的ポートフォリオ。">
+    <meta name="twitter:image" content="assets/icon01.png">
+    
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <main id="main-content">
+
+      <!-- 追従カーソル -->
+      <div class="custom-cursor"></div>
+      <div id="cursor-toggle">カーソルON/OFF</div>
+
+      <!-- 左上ロゴ＋説明 -->
+      <div class="site-header">
+        <a href="index.html" class="site-title">RAMALONG LAB</a>
+        <div class="site-description">
+          A CREATIVE SITE<br>
+          EXPLORING AI, SOCIETY,<br>
+          AND DESIGN.
+        </div>
+
+        <!-- ハンバーガーメニュー -->
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+      </div>
+
+      <!-- ナビゲーションメニュー -->
+      <nav id="mainNav">
+        <div class="nav-item"><a href="about.html" data-swup>ABOUT</a></div>
+        <div class="nav-item"><a href="works.html" data-swup>WORKS</a></div>
+        <div class="nav-item"><a href="ai-lab/about.html" data-swup>AIKEN Ramalong</a></div>
+        <div class="nav-item"><a href="archive.html" data-swup>ARCHIVE</a></div>
+        <div class="nav-item"><a href="content.html" data-swup>CONTACT</a></div>
+      </nav>
+
+      <section class="coming-soon">
+        <h1>ABOUT PAGE</h1>
+        <p>このページは現在準備中です。</p>
+        <p class="soon-text">Coming Soon...</p>
+      </section>
+
+    </main>
+
+    <footer>
+      &copy; 2025 Tsukamoto Riku / ramalong.com
+    </footer>
+
+    <!-- js記述 -->
+    <script>
+      const toggle = document.getElementById("menuToggle");
+      const nav = document.getElementById("mainNav");
+
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    </script>
+
+    <script>
+      const cursor = document.querySelector('.custom-cursor');
+      let mouseX = 0;
+      let mouseY = 0;
+      let currentX = 0;
+      let currentY = 0;
+
+      document.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      function animateCursor() {
+        // 緩やかに追従（遅延）
+        currentX += (mouseX - currentX) * 0.6;
+        currentY += (mouseY - currentY) * 0.6;
+
+        cursor.style.transform = `translate(${currentX}px, ${currentY}px)`;
+        requestAnimationFrame(animateCursor);
+      }
+
+      animateCursor();
+    </script>
+
+    <script>
+      window.addEventListener('load', () => {
+        const loadingScreen = document.getElementById('loading-screen');
+
+        // 最低表示時間（ミリ秒）
+        const MIN_LOADING_TIME = 1500;
+        const startTime = Date.now();
+
+        // ページの読み込み処理と最低表示時間の両方が終わるのを待つ
+        const ensureMinimumTime = new Promise(resolve => {
+          const elapsed = Date.now() - startTime;
+          const remaining = MIN_LOADING_TIME - elapsed;
+          setTimeout(resolve, remaining > 0 ? remaining : 0);
+        });
+
+        ensureMinimumTime.then(() => {
+          loadingScreen.classList.add('fade-out');
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+          }, 600); // CSSのfade-outと合わせる
+        });
+      });
+    </script>
+  </body>
+</html>

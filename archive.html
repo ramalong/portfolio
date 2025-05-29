@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARCHIVE | RAMALONG</title>
+
+    <!-- ページの説明 -->
+    <meta name="description" content="Tsukamoto Rikuのプロジェクト・研究・活動ログのアーカイブページ。AI、社会、デザインに関する軌跡を記録。">
+
+    <!-- SEOキーワード -->
+    <meta name="keywords" content="Tsukamoto Riku, RAMALONG, アーカイブ, プロジェクト記録, AI, 社会, デザイン">
+
+    <!-- 作者 -->
+    <meta name="author" content="Tsukamoto Riku">
+
+    <!-- favicon -->
+    <link rel="icon" href="assets/icon01.png" type="image/png">
+
+    <!-- SNS共有用 -->
+    <meta property="og:title" content="ARCHIVE | RAMALONG">
+    <meta property="og:description" content="Tsukamoto RikuによるAIと社会に関するプロジェクトアーカイブ。">
+    <meta property="og:image" content="assets/icon01.png">
+    <meta property="og:url" content="https://ramalong.com/archive.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitterカード -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ARCHIVE | RAMALONG">
+    <meta name="twitter:description" content="Tsukamoto RikuによるAIと社会に関するプロジェクトアーカイブ。">
+    <meta name="twitter:image" content="assets/icon01.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+    <main id="main-content">
+      <!-- カスタムカーソル -->
+      <div class="custom-cursor"></div>
+      <div id="cursor-toggle">カーソルON/OFF</div>
+
+      <!-- ヘッダー -->
+      <div class="site-header">
+        <a href="index.html" class="site-title">RAMALONG LAB</a>
+        <div class="site-description">
+          A CREATIVE SITE<br>
+          EXPLORING AI, SOCIETY,<br>
+          AND DESIGN.
+        </div>
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+      </div>
+
+      <!-- ナビゲーション -->
+      <nav id="mainNav">
+        <div class="nav-item"><a href="about.html" data-swup>ABOUT</a></div>
+        <div class="nav-item"><a href="works.html" data-swup>WORKS</a></div>
+        <div class="nav-item"><a href="ai-lab/about.html" data-swup>AIKEN Ramalong</a></div>
+        <div class="nav-item"><a href="archive.html" data-swup>ARCHIVE</a></div>
+        <div class="nav-item"><a href="content.html" data-swup>CONTACT</a></div>
+      </nav>
+
+      <!-- アーカイブ表示 -->
+      <section class="coming-soon">
+        <h1>ARCHIVE PAGE</h1>
+        <p>プロジェクトや活動の記録をここにまとめていきます。</p>
+        <p class="soon-text">Coming Soon...</p>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2025 Tsukamoto Riku / ramalong.com
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      const toggle = document.getElementById("menuToggle");
+      const nav = document.getElementById("mainNav");
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    </script>
+
+    <script>
+      const cursor = document.querySelector('.custom-cursor');
+      let mouseX = 0, mouseY = 0;
+      let currentX = 0, currentY = 0;
+
+      document.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      function animateCursor() {
+        currentX += (mouseX - currentX) * 0.6;
+        currentY += (mouseY - currentY) * 0.6;
+        cursor.style.transform = `translate(${currentX}px, ${currentY}px)`;
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+    </script>
+
+    <script>
+      window.addEventListener('load', () => {
+        const loadingScreen = document.getElementById('loading-screen');
+        const MIN_LOADING_TIME = 1500;
+        const startTime = Date.now();
+        const ensureMinimumTime = new Promise(resolve => {
+          const elapsed = Date.now() - startTime;
+          const remaining = MIN_LOADING_TIME - elapsed;
+          setTimeout(resolve, remaining > 0 ? remaining : 0);
+        });
+        ensureMinimumTime.then(() => {
+          loadingScreen.classList.add('fade-out');
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+          }, 600);
+        });
+      });
+    </script>
+  </body>
+</html>
